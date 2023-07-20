@@ -1,12 +1,16 @@
+
 import { getFish } from './database.js'
 
+import { FishList } from './FishList.js'
+
+
 const allFish = getFish()
+const more = FishList()
 
-for (const fish of allFish) {
-    console.log(fish)
-}
+// for (const fish of allFish) {
+//     console.log(fish)
+// }
 
-// debugger
 
 /*
     What is the CSS selector for the element where you
@@ -15,5 +19,7 @@ for (const fish of allFish) {
     Use . for elements with a "class" attribute
     Use # for elements with an "id" attribute
  */
+const parentHTMLElement = document.querySelector(".things")
 
 
+parentHTMLElement.innerHTML = FishList()
