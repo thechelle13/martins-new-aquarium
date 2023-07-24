@@ -3,9 +3,14 @@ import { getFish } from './database.js'
 
 import { FishList } from './FishList.js'
 
+import { TipsList } from './tips.js'
 
+import { localList } from './locations.js'
+
+//import { mostHolyFish, soldierFish, nonHolyFish } from './FishList.js'
 const allFish = getFish()
-const more = FishList()
+//const tankCare = TipsList()
+
 
 // for (const fish of allFish) {
 //     console.log(fish)
@@ -21,5 +26,17 @@ const more = FishList()
  */
 const parentHTMLElement = document.querySelector(".things")
 
-
 parentHTMLElement.innerHTML = FishList()
+
+const holyHTMLElement = document.querySelector(".content")
+
+holyHTMLElement.innerHTML = TipsList()
+
+
+const localHTMLElement = document.querySelector(".where")
+
+const localHTML =`<h2>Locations Harvested</h2>`
+
+localHTMLElement.innerHTML = localList()
+
+

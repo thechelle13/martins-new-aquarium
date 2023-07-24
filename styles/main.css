@@ -1,8 +1,27 @@
-.fishList {
-    text-align: center;
-}
 
 .things {
+    display: flex;
+    flex-wrap: wrap;
     text-align: center;
+    text-emphasis: bold;
 }
-    
+
+.content {
+    display: flex;
+    flex-wrap: wrap;
+    text-align: center;
+    text-emphasis: bold;
+    float: left;
+
+}
+
+.details {
+    display: flex;
+    flex-wrap: wrap;
+    text-align: center;
+    text-emphasis: bold;
+    float: left;
+
+}
+
+
