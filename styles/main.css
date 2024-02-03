@@ -1,3 +1,6 @@
+body {
+    background-color: brown;
+}
 
 .things {
     display: flex;
@@ -21,7 +24,13 @@
     text-align: center;
     text-emphasis: bold;
     float: left;
-
 }
 
+.tips {
+    display: flex;
+    flex-wrap: wrap;
+    text-align: center;
+    text-emphasis: bold;
+    float: left;
 
+}
