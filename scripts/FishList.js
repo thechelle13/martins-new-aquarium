@@ -1,6 +1,7 @@
 // Import the function that returns a copy of the fish array
 import { getFish } from "./database.js"
 
+
 export const FishList = () => {
     // Invoke the function that you imported from the database module
     const fishes = getFish()
@@ -8,17 +9,21 @@ export const FishList = () => {
     // Start building a string filled with HTML syntax
     let htmlString = '<article class="things">'
 
+    htmlString += `<section class="details">
+                            <h2>Fish List</h2>
+                        </section>`;
+
     // Create HTML representations of each fish here
     for (const fish of fishes) {
 
         // Why is there a backtick used for this string?
         htmlString += `<section class="details">
             <div><img src="${fish.image}" /></div>
-            <div>${fish.name}</div>
-            <div>${fish.species}</div>
-            <div>${fish.length}</div>
-            <div>${fish.location}</div>
-            <div>${fish.food}</div>
+            <div>Name: ${fish.name}</div>
+            <div>Species: ${fish.species}</div>
+            <div>Length: ${fish.length}</div>
+            <div>Harvest Location: ${fish.location}</div>
+            <div>Food: ${fish.food}</div>
         </section>
 `
     }
@@ -29,40 +34,69 @@ export const FishList = () => {
 
 
 
+// In FishList.js
 export const mostHolyFish = () => {
-    // 3, 6, 9, 12, etc... fish
-    const holyFish = []
-    let theseFish = database.fish
-    for (fish of fish) {
+    const holyFish = [];
+    const theseFish = getFish();
+
+    let fishHTML = `<article class="things">
+                        <h2>Holy Fish</h2>
+                        <ul>`;
+
+    for (let fish of theseFish) {
         if (fish.length % 3 === 0) {
-            holyFish.push(fish)
-            }
-    return holyFish
-}
-}
+            holyFish.push(fish.name);
+            fishHTML += `<li>${fish.name} - ${fish.length} inches</li>`;
+        }
+    }
 
+    fishHTML += `</ul>
+                </article>`;
 
+    return fishHTML;
+};
 
 export const soldierFish = () => {
-    soldiers = []
-    let theseFish = database.fish
-    for (fish of fishes) {
-        if (fish.length % 5 === 0){
-            soldiers.push(fish)
+    const soldiers = [];
+    const theseFish = getFish();
+
+    let fishHTML = `<article class="things">
+                        <h2>Soldier Fish</h2>
+                        <ul>`;
+
+    for (let fish of theseFish) {
+        if (fish.length % 5 === 0) {
+            soldiers.push(fish.name);
+            fishHTML += `<li>${fish.name} - ${fish.length} inches</li>`;
         }
-    // 5, 10, 15, 20, 25, etc... fish
-    return soldiers
-}
-}
+    }
+
+    fishHTML += `</ul>
+                </article>`;
+
+    return fishHTML;
+};
 
 export const nonHolyFish = () => {
-    regularFish = []
-    let theseFish = database.fish
-    for (fish of fish) {
-        if (fish.length % 3 !== 0 && fish.length % 5 !== 0){
-            regularFish.push(fish)
+    const regularFish = [];
+    const theseFish = getFish();
+
+    let fishHTML = `<article class="things">
+                        <h2>Regular Fish</h2>
+                        <ul>`;
+
+    for (let fish of theseFish) {
+        if (fish.length % 3 !== 0 && fish.length % 5 !== 0) {
+            regularFish.push(fish.name);
+            fishHTML += `<li>${fish.name} - ${fish.length} inches</li>`;
         }
-    // 5, 10, 15, 20, 25, etc... fish
-    return regularFish
-}
-}
+    }
+
+    fishHTML += `</ul>
+                </article>`;
+
+    return fishHTML;
+};
+
+
+

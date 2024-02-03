@@ -1,24 +1,24 @@
-import { getLocations } from "./database.js"
+import { getLocations } from "./database.js";
 
 export const localList = () => {
     // Invoke the function that you imported from the database module
-    const fishes = getLocations()
+    const locations = getLocations();
 
     // Start building a string filled with HTML syntax
-    let localHTMLString = '<article class="where">'
+    let localHTMLString = '<article class="where">';
 
-    // Create HTML representations of each fish here
-    for (const location of fishes) {
+    localHTMLString += `<section class="details">
+                            <h2>Harvest Locations</h2>
+                        </section>`;
 
-        // Why is there a backtick used for this string?
+    // Create HTML representations of each location here
+    for (const location of locations) {
         localHTMLString += `<section class="details">
-            <div>${location}</div>
-            
-        </section>
-`
+            <li>${location}</li>
+        </section>`;
     }
-    localHTMLString += `</article>`
 
-    return localHTMLString
-}
+    localHTMLString += `</article>`;
 
+    return localHTMLString;
+};

@@ -1,14 +1,11 @@
-
-import { getFish } from './database.js'
-
-import { FishList } from './FishList.js'
+import { FishList, mostHolyFish, nonHolyFish, soldierFish } from './FishList.js'
 
 import { TipsList } from './tips.js'
 
 import { localList } from './locations.js'
 
 //import { mostHolyFish, soldierFish, nonHolyFish } from './FishList.js'
-const allFish = getFish()
+// const allFish = getFish()
 //const tankCare = TipsList()
 
 
@@ -24,19 +21,25 @@ const allFish = getFish()
     Use . for elements with a "class" attribute
     Use # for elements with an "id" attribute
  */
-const parentHTMLElement = document.querySelector(".things")
+const parentHTMLElement = document.querySelector(".things");
 
-parentHTMLElement.innerHTML = FishList()
+    // Displaying all fish
+parentHTMLElement.innerHTML = FishList();
+    
+    // Displaying most holy fish
+parentHTMLElement.innerHTML += mostHolyFish();
+
+// Displaying non-holy fish
+parentHTMLElement.innerHTML += nonHolyFish();
+
+// Displaying soldier fish
+parentHTMLElement.innerHTML += soldierFish();
+    
 
 const holyHTMLElement = document.querySelector(".content")
 
 holyHTMLElement.innerHTML = TipsList()
 
-
 const localHTMLElement = document.querySelector(".where")
-
-const localHTML =`<h2>Locations Harvested</h2>`
-
 localHTMLElement.innerHTML = localList()
-
 

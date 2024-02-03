@@ -72,5 +72,5 @@ export const getTips = () => {
 }
 
 export const getLocations = () => {
-    return database.locations.map(locations => ({...locations}))
-}
+    return [...database.locations];  
+};
